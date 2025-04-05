@@ -680,7 +680,6 @@ input[type='checkbox'] {
 input[type='text'] {
     font-family: 'Google Sans', Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
     height: 1.5em;
     padding-left: 10px;
     color: #0059A8;
@@ -691,7 +690,6 @@ input[type='text'] {
 input[type='password'] {
     font-family: 'Google Sans', Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
     height: 1.5em;
     padding-left: 10px;
     color: #0059A8;
@@ -702,7 +700,6 @@ input[type='password'] {
 input[type='email'] {
     font-family: 'Google Sans', Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
     height: 1.5em;
     padding-left: 10px;
     color: #0059A8;
@@ -713,7 +710,6 @@ input[type='email'] {
 input[type='date'] {
     font-family: 'Google Sans', Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
     height: 1.5em;
     padding-left: 10px;
     color: #0059A8;

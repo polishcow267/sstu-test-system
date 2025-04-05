@@ -153,7 +153,8 @@ export default function Header() {
 
     const StyleButton = withStyles({
         root: {
-          width: '86%',
+          width: '93%',
+          height: '50px',
           backgroundColor: '#0059A8',
           borderRadius: '30px',
           color: "white",
@@ -161,6 +162,7 @@ export default function Header() {
           fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(','),
           fontSize: "1rem",
           marginTop: "10px",
+          marginBottom: "15px",
           fontWeight: 700,
           '&:hover': {
             backgroundColor: '#0372D4',
@@ -186,7 +188,8 @@ export default function Header() {
           textTransform: "none",
           fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(','),
           fontSize: "1rem",
-          marginBottom: '15px',
+          marginTop: "-15px",
+          marginBottom: "15px",
           fontWeight: 700,
             },
       })(Button);
@@ -275,7 +278,7 @@ export default function Header() {
                                             autoFocus
                                             margin="dense"
                                             id="name_login"
-                                            placeholder=" Логин"
+                                            placeholder="  Логин"
                                             type="text"
                                             variant="outlined"                       
                                             fullWidth
@@ -284,7 +287,7 @@ export default function Header() {
                                             autoFocus
                                             margin="dense"
                                             id="pass_login"
-                                            placeholder=" Пароль"
+                                            placeholder="  Пароль"
                                             type="password"
                                             variant="outlined"
                                             fullWidth
