@@ -153,19 +153,15 @@ export default function Header() {
 
     const StyleButton = withStyles({
         root: {
-          width: '93%',
+          width: '86%',
           backgroundColor: '#0059A8',
           borderRadius: '30px',
           color: "white",
           textTransform: "none",
-          fontFamily: [
-            "Lucida Sans Unicode", 
-            "Lucida Grande", 
-            'sans-serif',
-          ].join(','),
+          fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(','),
           fontSize: "1rem",
-          margin: "5px",
-
+          marginTop: "10px",
+          fontWeight: 700,
           '&:hover': {
             backgroundColor: '#0372D4',
           },
@@ -178,10 +174,36 @@ export default function Header() {
         },
       })(Button);
 
+      const AskButton = withStyles({
+        root: {
+            color: "#0059A8",
+            textTransform: 'none',
+            },
+      })(Button);
+      const AskRegButton = withStyles({
+        root: {
+          color: "#0059A8",
+          textTransform: "none",
+          fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(','),
+          fontSize: "1rem",
+          marginBottom: '15px',
+          fontWeight: 700,
+            },
+      })(Button);
+
+      const AskActions = withStyles({
+        root: {
+            display: "flex",
+            justifyContent: 'right',
+            marginRight: '15px',
+            marginTop: '-10px',
+        },
+      })(DialogActions);
+
       const StyleActions = withStyles({
         root: {
-          display: "flex",
-          justifyContent: "space-between",
+            display: "flex",
+            justifyContent: "center",
         },
       })(DialogActions);
 
@@ -253,7 +275,7 @@ export default function Header() {
                                             autoFocus
                                             margin="dense"
                                             id="name_login"
-                                            placeholder="Логин"
+                                            placeholder=" Логин"
                                             type="text"
                                             variant="outlined"                       
                                             fullWidth
@@ -262,22 +284,27 @@ export default function Header() {
                                             autoFocus
                                             margin="dense"
                                             id="pass_login"
-                                            placeholder="Пароль"
+                                            placeholder=" Пароль"
                                             type="password"
                                             variant="outlined"
                                             fullWidth
                                         />
                                     </DialogContent>
 
-                                    <DialogActions>
-                                        <Button color="primary" onClick={handleClickOpenRemind} >Забыли логин или пароль?</Button> 
-                                    </DialogActions>
+                                    
+                                    <AskActions>
+                                        <AskButton color="primary" onClick={handleClickOpenRemind} >Забыли логин или пароль?</AskButton> 
+                                    </AskActions>
 
                                     <StyleActions>     
-                                          <StyleButton variant="contained" color="primary" onClick={() => { handleAuth(); }} >Авторизоваться</StyleButton>
-                                          <StyleButton variant="contained" color="primary" onClick={handleClickOpenRegistration} >Регистрация</StyleButton>   
+                                          <StyleButton variant="contained" color="primary" onClick={() => { handleAuth(); }} >Авторизоваться</StyleButton>  
                                     </StyleActions>
-                                
+
+                                    <StyleActions>      
+                                        <AskRegButton color="primary" onClick={handleClickOpenRegistration} >Регистрация</AskRegButton>   
+                                    </StyleActions>
+                                    
+                                    
                                 </Dialog>
 
                                 <Dialog PaperProps={{
