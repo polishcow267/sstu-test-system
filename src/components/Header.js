@@ -228,6 +228,23 @@ export default function Header() {
           letterSpacing: '0.0075em',
         },
       })(DialogTitle);
+
+      const StyleSelect = withStyles({
+        root: {
+            fontFamily: ['Google Sans', "Arial", "sans-serif"].join(','),
+            fontSize: "20px",
+            color: "#0059A8",
+            borderRadius: '15px',
+            boxShadow: "inset 0px 2px 3px -1px rgba(0, 0, 0, 0.15)",
+        },
+      })(Select);
+
+      const StyleInputLabel = withStyles({
+        root: {
+            fontFamily: ['Google Sans', "Arial", "sans-serif"].join(','),
+            color: "#0059A8",
+        },
+      })(InputLabel);
     
     /*const StyledDialog = withStyles({
         root: {
@@ -355,8 +372,8 @@ export default function Header() {
                                           <TextField
                                               autoFocus
                                               margin="dense"
-                                              id="name1_reg"
-                                              placeholder="Имя"
+                                              id="name2_reg"
+                                              placeholder="  Фамилия"
                                               type="text"
                                               variant="outlined"
                                               fullWidth
@@ -364,32 +381,33 @@ export default function Header() {
                                           <TextField
                                               autoFocus
                                               margin="dense"
-                                              id="name2_reg"
-                                              placeholder="Фамилия"
+                                              id="name1_reg"
+                                              placeholder="  Имя"
                                               type="text"
                                               variant="outlined"
                                               fullWidth
-                                          /><p />
+                                          /><p />                                         
                                           <TextField
                                               autoFocus
                                               margin="dense"
                                               id="name3_reg"
-                                              placeholder="Отчество"
+                                              placeholder="  Отчество"
                                               type="text"
                                               variant="outlined"
                                               fullWidth
                                           /><p />
+                                        
                                         <TextField
                                             autoFocus
                                             margin="dense"
                                             id="mail_reg"
-                                            placeholder="Почта"
+                                            placeholder="  Почта"
                                             type="email"
                                             variant="outlined"
                                             fullWidth
                                         /><br /><br />
 
-                                        <InputLabel htmlFor="date">Дата рождения</InputLabel>
+                                        <StyleInputLabel htmlFor="date"> Дата рождения</StyleInputLabel>
                                         <TextField
                                             margin="dense"
                                             id="date_reg"                                        
@@ -397,21 +415,21 @@ export default function Header() {
                                             variant="outlined"                                   
                                         /><br /><br />
 
-                                        <InputLabel htmlFor="status">Статус в системе</InputLabel> 
-                                        <Select                                            
+                                        <p><StyleInputLabel htmlFor="status"> Статус в системе</StyleInputLabel></p>
+                                        <StyleSelect                                                              
                                             autoFocus
                                             value={status}
                                             onChange={handleStatusChange}
                                             inputProps={{
                                             name: 'status',
-                                            id: 'status_reg',
+                                            id: 'status_reg',                       
                                             }}
                                             variant="outlined"
                                         >
                                             <MenuItem value="EMPLOYEE">Сотрудник СГТУ</MenuItem>
                                             <MenuItem value="STUDENT">Студент СГТУ</MenuItem>
                                             <MenuItem value="EXTERNAL">Внешний испытуемый</MenuItem>
-                                        </Select><br />
+                                        </StyleSelect><br />
                                     </DialogContent>
 
                                     <StyleAction>     

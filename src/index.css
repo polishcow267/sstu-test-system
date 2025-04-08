@@ -715,7 +715,7 @@ input[type='date'] {
     color: #0059A8;
     box-shadow: inset 0px 2px 3px -1px rgba(0, 0, 0, 0.15);
     letter-spacing: 1px;
-    border-radius: 12px; 
+    border-radius: 15px; 
 }
 
 .q-input-text{
