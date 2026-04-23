@@ -19,6 +19,8 @@ import { withStyles } from "@material-ui/core/styles";
 import Timer from "../components/Timer";
 import Spinner from '../components/Spinner';
 
+import { getOrCreateDeviceId } from '../components/deviceId';
+
 const baseURL = "https://maile.fita.cc";
 
 const ActiveTest = () => {
@@ -108,9 +110,13 @@ const ActiveTest = () => {
             "testId": testid
         }
 
+        const deviceId = getOrCreateDeviceId();
+
         //console.log(Payload);
         setLoading(true);
-        axios.post(baseURL + '/sessions', Payload)
+        axios.post(baseURL + '/sessions', Payload, {
+            headers: { 'X-Device-Id': deviceId }
+        })
             .then(function (response) {
 
                 //console.log(response);
@@ -118,6 +124,8 @@ const ActiveTest = () => {
                 localStorage.setItem("question_id", response.data.item.id);
                 setTime(new Date(new Date().getTime() + Number(response.data.remainingTime) * 1000));
                 setQuestion(response.data.item);
+
+                axios.defaults.headers.common["X-Device-Id"] = deviceId;
 
                 if (!is_adaptive_test) {
                     getBoxes(0);
@@ -317,6 +325,7 @@ const ActiveTest = () => {
 
         axios.patch(url)
             .then(function (response) {
+                delete axios.defaults.headers.common["X-Device-Id"]
                 localStorage.removeItem("session_id");
                 localStorage.removeItem("question_id");
                 if (!is_adaptive_test) {
