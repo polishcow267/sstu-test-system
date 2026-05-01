@@ -110,13 +110,10 @@ const ActiveTest = () => {
             "testId": testid
         }
 
-        const deviceId = getOrCreateDeviceId();
 
         //console.log(Payload);
         setLoading(true);
-        axios.post(baseURL + '/sessions', Payload, {
-            headers: { 'X-Device-Id': deviceId }
-        })
+        axios.post(baseURL + '/sessions', Payload)
             .then(function (response) {
 
                 //console.log(response);
@@ -125,6 +122,8 @@ const ActiveTest = () => {
                 setTime(new Date(new Date().getTime() + Number(response.data.remainingTime) * 1000));
                 setQuestion(response.data.item);
 
+                const deviceId = response.data.deviceId;
+                localStorage.setItem('deviceId', deviceId);
                 axios.defaults.headers.common["X-Device-Id"] = deviceId;
 
                 if (!is_adaptive_test) {
@@ -328,6 +327,7 @@ const ActiveTest = () => {
                 delete axios.defaults.headers.common["X-Device-Id"]
                 localStorage.removeItem("session_id");
                 localStorage.removeItem("question_id");
+                localStorage.removeItem("deviceId");
                 if (!is_adaptive_test) {
                     localStorage.removeItem("question_list");
                 }
