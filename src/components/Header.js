@@ -38,8 +38,10 @@ export default function Header() {
     const baseURL = "https://maile.fita.cc";
 
     useEffect(() => {
-        localStorage.getItem("accessToken") ? setAuth(true) : setAuth(false);
-    }, []);
+            axios.get(baseURL + '/tests')
+                .then(() => setAuth(true))
+                .catch(() => setAuth(false));
+        }, []);
 
     const handleClickOpenAuthorization = () => {
         setOpenAuthorization(true);
