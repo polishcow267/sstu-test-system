@@ -120,8 +120,6 @@ export default function Header() {
         axios.post(baseURL + '/auth/login', loginPayload)
             .then(function (response) {
                 //console.log(response);
-                const token = response.data.accessToken;
-                localStorage.setItem("accessToken", token);
                 setAuthTokenStored();
                 setAuth(true);
                 //console.log(token);
@@ -143,9 +141,13 @@ export default function Header() {
 
     const handleExit = () =>
     {
-        localStorage.clear();
-        setAuth(false);
-        window.location.href = "https://web.fita.cc";
+        axios.post(baseURL + '/auth/logout')
+            .catch(err => console.log('Logout error:', err))
+            .finally(() => {
+                setAuth(false);
+                localStorage.clear();
+                window.location.href = "https://web.fita.cc";
+            });
     }
 
     const StyleButton = withStyles({

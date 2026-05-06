@@ -23,11 +23,8 @@ export default function Result() {
 
     //Результат теста
 
-    if (localStorage.getItem("accessToken") == null) {
-        return <Navigate to="/" />
-    }
-    //console.log(parseJwt(token));
-    let student = parseJwt(localStorage.getItem("accessToken")).sub;
+    let res = JSON.parse(localStorage.getItem("Result"));
+    let student = res?.user?.login || "Пользователь"
 
     let res = JSON.parse(localStorage.getItem("Result"));
     //console.log(res);

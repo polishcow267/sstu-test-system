@@ -342,7 +342,7 @@ const ActiveTest = () => {
             });
     }
     
-    if (finished || localStorage.getItem("accessToken") == null) {
+    if (finished) {
         return <Navigate to="/result/" />
     }
 
