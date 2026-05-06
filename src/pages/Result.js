@@ -24,9 +24,6 @@ export default function Result() {
     //Результат теста
 
     let res = JSON.parse(localStorage.getItem("Result"));
-    let student = res?.user?.login || "Пользователь"
-
-    let res = JSON.parse(localStorage.getItem("Result"));
     //console.log(res);
     let res_type = res.resultDisplayMethod;
     let is_multidim_test = localStorage.getItem("type") === "MULTIDIMENSIONAL" ? true : false;
